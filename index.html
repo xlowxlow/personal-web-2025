@@ -65,6 +65,7 @@
     <main class="main">
         <!-- Avatar Section -->
         <section class="avatar-section">
+            <a href="#daily-news" class="avatar-link" title="点击查看每日医疗AI资讯">
             <div class="avatar-container">
                 <svg class="avatar-svg" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Wild Robot Avatar -->
@@ -156,14 +157,57 @@
                     <!-- 医疗AI标识 -->
                     <rect x="75" y="170" width="50" height="15" rx="3" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
                     <text x="100" y="180" font-family="monospace" font-size="8" fill="#1e40af" text-anchor="middle">WILD AI</text>
+                    
+                    <!-- 初始化文字 -->
+                    <text x="100" y="195" font-family="monospace" font-size="6" fill="#6b7280" text-anchor="middle" opacity="0.8">Initializing… Daily medical AI updates ready to be delivered.</text>
                 </svg>
             </div>
+            </a>
         </section>
 
         <!-- Hero Section -->
         <section class="hero-section">
             <h1 class="hero-title">Hi, my name is <span class="highlight">Shui Liu</span>.</h1>
             <p class="hero-subtitle">Medical AI Entrepreneur | Founder of Med Frontier | Dedicated to reshaping radiology diagnosis with AI, making healthcare more equitable and intelligent.</p>
+        </section>
+
+        <!-- Daily Medical AI News Section -->
+        <section id="daily-news" class="daily-news-section">
+            <div class="news-container">
+                <h2 class="news-title">Daily Medical AI Bulletin</h2>
+                <div class="chat-container">
+                    <div class="robot-avatar">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="25" fill="#3b82f6" opacity="0.1"/>
+                            <circle cx="30" cy="25" r="15" fill="#e5e7eb" stroke="#3b82f6" stroke-width="2"/>
+                            <circle cx="25" cy="22" r="2" fill="#3b82f6"/>
+                            <circle cx="35" cy="22" r="2" fill="#3b82f6"/>
+                            <path d="M25 30 Q30 33 35 30" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <rect x="20" y="40" width="20" height="15" rx="3" fill="#e5e7eb" stroke="#3b82f6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="chat-bubbles">
+                        <div id="news-bubble-1" class="chat-bubble hidden">
+                            <div class="bubble-content">
+                                <p class="bubble-text">Loading news...</p>
+                                <span class="bubble-time"></span>
+                            </div>
+                        </div>
+                        <div id="news-bubble-2" class="chat-bubble hidden">
+                            <div class="bubble-content">
+                                <p class="bubble-text">Loading news...</p>
+                                <span class="bubble-time"></span>
+                            </div>
+                        </div>
+                        <div id="news-bubble-3" class="chat-bubble hidden">
+                            <div class="bubble-content">
+                                <p class="bubble-text">Loading news...</p>
+                                <span class="bubble-time"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Introduction Panel -->
@@ -194,7 +238,7 @@
                     </div>
                     <h3 class="project-title">Radiologx AI Platform</h3>
                     <p class="project-description">Professional radiology AI platform with CNN automatic lesion detection (90% sensitivity) and LLM structured report generation, reducing physician workload by 30%.</p>
-                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+
                 </article>
 
                 <article class="project-card" data-reveal>
@@ -209,7 +253,7 @@
                     </div>
                     <h3 class="project-title">Low-Dose CT Optimization Algorithm</h3>
                     <p class="project-description">Deep learning-based CT image denoising technology, reducing radiation dose by 30% with 90% sensitivity for small nodule detection. Published in Radiology journal.</p>
-                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Research →</a>
+
                 </article>
 
                 <article class="project-card" data-reveal>
@@ -224,7 +268,7 @@
                     </div>
                     <h3 class="project-title">Federated Learning Medical Network</h3>
                     <p class="project-description">Breaking data silos, enabling hospitals to share AI models without data migration, promoting healthcare equity with a goal to impact 100,000 patient lives.</p>
-                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Join Network →</a>
+
                 </article>
             </div>
         </section>
@@ -266,7 +310,7 @@
                             <div class="stat-label">Partner Hospitals</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">10万+</div>
+                            <div class="stat-number">100K+</div>
                             <div class="stat-label">Reduced Diagnosis Delays</div>
                         </div>
                     </div>
@@ -321,10 +365,7 @@
                             <h3>Shui Liu</h3>
                             <p class="member-title">Founder & CEO</p>
                             <p class="member-description">
-                                Founder and CEO of Med Frontier, a driving force in AI medical imaging. Founded Med Frontier and developed the Radiologx AI platform, combining CNN (Convolutional Neural Networks for automatic lesion detection) and LLM (Large Language Models for structured report generation) to promote China-UK medical collaboration.
-                            </p>
-                            <p class="member-description">
-                                Collaborating with Tianjin Medical University Cancer Institute and NHS Innovation to build a federated learning network (privacy-preserving data sharing), aiming to reduce diagnostic delays. My responsibility is to unite the team, set direction, and help physicians work more efficiently while ensuring patients receive equitable healthcare.
+                                Founder and CEO of Med Frontier, a driving force in AI medical imaging. Founded Med Frontier and developed the Radiologx AI platform，Collaborating with Tianjin Medical University Cancer Institute and NHS Innovation to build a federated learning network (privacy-preserving data sharing), aiming to reduce diagnostic delays.
                             </p>
                         </div>
                     </div>
@@ -369,6 +410,25 @@
                             </p>
                             <p class="member-description">
                                 Holding multiple patents in AI-based diagnostic technologies, he provides strong technical support for Med Frontier's technological innovation and product development.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 简单原始头像 -->
+                                <circle cx="100" cy="100" r="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+                                <circle cx="85" cy="85" r="8" fill="#374151"/>
+                                <circle cx="115" cy="85" r="8" fill="#374151"/>
+                                <path d="M80 120 Q100 135 120 120" stroke="#374151" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3>He Feng</h3>
+                            <p class="member-title">Co-Founder & Head of Business Strategy</p>
+                            <p class="member-description">
+                                He Feng has extensive experience in business development, market strategy, and product commercialisation, particularly in the European and Asian healthcare markets. He is responsible for developing and implementing the business strategy for Radiologx AI, including market entry plans and building partnerships.
                             </p>
                         </div>
                     </div>

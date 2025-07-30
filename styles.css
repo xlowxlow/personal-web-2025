@@ -270,6 +270,17 @@ body::before {
   margin: 4rem 0;
 }
 
+.avatar-link {
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.avatar-link:hover {
+  transform: scale(1.05);
+}
+
 .avatar-container {
   position: relative;
   animation: float 6s ease-in-out infinite;
@@ -619,6 +630,161 @@ body::before {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px var(--shadow-dark);
   border-color: var(--primary);
+}
+
+/* 每日医疗AI新闻部分 */
+.daily-news-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px var(--shadow-dark);
+}
+
+.news-container {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chat-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+
+.robot-avatar {
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.chat-bubbles {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-bubble {
+  background: var(--bg-secondary);
+  border-radius: 20px 20px 20px 5px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px var(--shadow-dark);
+  border: 2px solid var(--border);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.chat-bubble::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--bg-secondary) transparent transparent;
+}
+
+.chat-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chat-bubble.hidden {
+  display: none;
+}
+
+.bubble-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bubble-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.bubble-text a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.bubble-text a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.bubble-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
 }
 
 .project-card:hover::before {
@@ -1203,6 +1369,42 @@ body::before {
 
   .member-description {
     font-size: 0.9rem;
+  }
+
+  .daily-news-section {
+    padding: 2rem 1rem;
+    margin: 1rem;
+  }
+  
+  .news-title {
+    font-size: 2rem;
+  }
+  
+  .chat-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .robot-avatar {
+    margin-bottom: 1rem;
+  }
+  
+  .chat-bubbles {
+    width: 100%;
+  }
+  
+  .chat-bubble {
+    border-radius: 20px;
+    padding: 1rem;
+  }
+  
+  .chat-bubble::before {
+    display: none;
+  }
+  
+  .bubble-text {
+    font-size: 1rem;
   }
 }
 

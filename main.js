@@ -369,6 +369,99 @@ window.addEventListener('error', (e) => {
 });
 
 // 控制台欢迎信息
+// 加载每日医疗AI新闻
+function loadDailyNews() {
+    fetch('./news.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch news');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.news && data.news.length > 0) {
+                displayNewsWithAnimation(data.news);
+            } else {
+                displayNoNews();
+            }
+        })
+        .catch(error => {
+            console.error('Error loading news:', error);
+            displayErrorMessage();
+        });
+}
+
+// 显示新闻动画
+function displayNewsWithAnimation(newsArray) {
+    const bubbles = [
+        document.getElementById('news-bubble-1'),
+        document.getElementById('news-bubble-2'),
+        document.getElementById('news-bubble-3')
+    ];
+    
+    // 先隐藏所有气泡
+    bubbles.forEach(bubble => {
+        bubble.classList.add('hidden');
+        bubble.classList.remove('show');
+    });
+    
+    // 逐个显示新闻气泡
+    newsArray.forEach((news, index) => {
+        if (index < 3) {
+            setTimeout(() => {
+                const bubble = bubbles[index];
+                const textElement = bubble.querySelector('.bubble-text');
+                const timeElement = bubble.querySelector('.bubble-time');
+                
+                // 设置内容
+                textElement.innerHTML = `<a href="${news.link}" target="_blank" rel="noopener noreferrer">${news.title}</a>`;
+                timeElement.textContent = `${news.writer} • ${new Date(news.updated).toLocaleDateString()}`;
+                
+                // 显示气泡
+                bubble.classList.remove('hidden');
+                setTimeout(() => {
+                    bubble.classList.add('show');
+                }, 100);
+            }, index * 1000); // 每个气泡间隔1秒显示
+        }
+    });
+}
+
+// 显示无新闻消息
+function displayNoNews() {
+    const bubble = document.getElementById('news-bubble-1');
+    const textElement = bubble.querySelector('.bubble-text');
+    const timeElement = bubble.querySelector('.bubble-time');
+    
+    textElement.textContent = 'No medical AI news available today';
+    timeElement.textContent = 'Check back tomorrow for updates';
+    
+    bubble.classList.remove('hidden');
+    setTimeout(() => {
+        bubble.classList.add('show');
+    }, 100);
+}
+
+// 显示错误消息
+function displayErrorMessage() {
+    const bubble = document.getElementById('news-bubble-1');
+    const textElement = bubble.querySelector('.bubble-text');
+    const timeElement = bubble.querySelector('.bubble-time');
+    
+    textElement.textContent = 'Failed to load medical AI news';
+    timeElement.textContent = 'Please try refreshing the page';
+    
+    bubble.classList.remove('hidden');
+    setTimeout(() => {
+        bubble.classList.add('show');
+    }, 100);
+}
+
+// 页面加载完成后加载新闻
+window.addEventListener('load', () => {
+    loadDailyNews();
+});
+
 console.log('%c欢迎来到我的个人网站！', 'color: #ff6b9d; font-size: 20px; font-weight: bold;');
 console.log('%c如果你对代码感兴趣，欢迎查看源码 😊', 'color: #c77dff; font-size: 14px;');
 
