@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shui - Personal Portfolio</title>
+    <meta name="description" content="Hi, my name is Shui. Welcome to my personal portfolio website.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loading-mask" class="loading-mask">
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                    <text x="20" y="26" text-anchor="middle" fill="#3b82f6" font-family="Bitter" font-size="16" font-weight="600">S</text>
+                </svg>
+            </div>
+            <div class="nav-actions">
+                <a href="mailto:shui.liu@medfrontiersuppliers.com" class="contact-link">Collaboration</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Menu -->
+    <div id="main-menu" class="main-menu">
+        <div class="menu-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shui-liu-medtech/" target="_blank" rel="noopener noreferrer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+            <nav class="menu-nav">
+                <a href="#home" class="menu-link active">Home</a>
+                <a href="#work" class="menu-link">Projects</a>
+                <a href="#about" class="menu-link">About</a>
+                <a href="#mission" class="menu-link">Mission</a>
+                <a href="#team" class="menu-link">Team</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Avatar Section -->
+        <section class="avatar-section">
+            <div class="avatar-container">
+                <svg class="avatar-svg" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Wild Robot Avatar -->
+                    <defs>
+                        <linearGradient id="robotBodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#d1d5db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+                        </linearGradient>
+                        <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.8" />
+                        </radialGradient>
+                        <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 背景自然光环 -->
+                    <circle cx="100" cy="100" r="95" fill="#dcfce7" opacity="0.3"/>
+                    
+                    <!-- 机器人主体 - 圆润设计 -->
+                    <ellipse cx="100" cy="110" rx="45" ry="55" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    
+                    <!-- 头部 -->
+                    <circle cx="100" cy="75" r="35" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    
+                    <!-- 发光眼睛 -->
+                    <circle cx="88" cy="70" r="8" fill="url(#eyeGlow)" class="robot-eye"/>
+                    <circle cx="112" cy="70" r="8" fill="url(#eyeGlow)" class="robot-eye"/>
+                    
+                    <!-- 眼睛内核 -->
+                    <circle cx="88" cy="70" r="4" fill="#1e40af" opacity="0.9"/>
+                    <circle cx="112" cy="70" r="4" fill="#1e40af" opacity="0.9"/>
+                    
+                    <!-- 眼睛高光 -->
+                    <circle cx="90" cy="68" r="2" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="114" cy="68" r="2" fill="#ffffff" opacity="0.8"/>
+                    
+                    <!-- 面部表情线条 -->
+                    <path d="M92 85 Q100 88 108 85" stroke="#4b5563" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    
+                    <!-- 胸部面板 -->
+                    <rect x="85" y="105" width="30" height="20" rx="5" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+                    <circle cx="92" cy="115" r="2" fill="#22c55e" class="status-light"/>
+                    <circle cx="100" cy="115" r="2" fill="#fbbf24" class="status-light"/>
+                    <circle cx="108" cy="115" r="2" fill="#ef4444" class="status-light"/>
+                    
+                    <!-- 机械手臂 -->
+                    <ellipse cx="65" cy="130" rx="12" ry="25" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    <ellipse cx="135" cy="130" rx="12" ry="25" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    
+                    <!-- 机械手 -->
+                    <circle cx="65" cy="155" r="8" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    <circle cx="135" cy="155" r="8" fill="url(#robotBodyGradient)" stroke="#6b7280" stroke-width="1"/>
+                    
+                    <!-- 手指关节 -->
+                    <circle cx="62" cy="152" r="1.5" fill="#4b5563"/>
+                    <circle cx="68" cy="152" r="1.5" fill="#4b5563"/>
+                    <circle cx="132" cy="152" r="1.5" fill="#4b5563"/>
+                    <circle cx="138" cy="152" r="1.5" fill="#4b5563"/>
+                    
+                    <!-- 自然元素 - 藤蔓和叶子 -->
+                    <path d="M40 120 Q60 110 80 120 Q90 125 85 135" stroke="#16a34a" stroke-width="3" fill="none" class="vine"/>
+                    <path d="M160 140 Q140 130 120 140 Q110 145 115 155" stroke="#16a34a" stroke-width="3" fill="none" class="vine"/>
+                    
+                    <!-- 叶子装饰 -->
+                    <ellipse cx="45" cy="115" rx="8" ry="4" fill="url(#leafGradient)" transform="rotate(30 45 115)" class="leaf"/>
+                    <ellipse cx="155" cy="135" rx="6" ry="3" fill="url(#leafGradient)" transform="rotate(-45 155 135)" class="leaf"/>
+                    <ellipse cx="75" cy="50" rx="5" ry="2.5" fill="url(#leafGradient)" transform="rotate(60 75 50)" class="leaf"/>
+                    
+                    <!-- 小花朵 -->
+                    <circle cx="35" cy="100" r="3" fill="#fbbf24" opacity="0.8"/>
+                    <circle cx="32" cy="97" r="1.5" fill="#ffffff" opacity="0.9"/>
+                    <circle cx="38" cy="97" r="1.5" fill="#ffffff" opacity="0.9"/>
+                    <circle cx="32" cy="103" r="1.5" fill="#ffffff" opacity="0.9"/>
+                    <circle cx="38" cy="103" r="1.5" fill="#ffffff" opacity="0.9"/>
+                    
+                    <!-- 蝴蝶 -->
+                    <ellipse cx="165" cy="60" rx="4" ry="2" fill="#f97316" opacity="0.8" class="butterfly-wing"/>
+                    <ellipse cx="171" cy="60" rx="4" ry="2" fill="#f97316" opacity="0.8" class="butterfly-wing"/>
+                    <path d="M168 58 L168 62" stroke="#92400e" stroke-width="1"/>
+                    
+                    <!-- 能量核心 -->
+                    <circle cx="100" cy="115" r="6" fill="#60a5fa" opacity="0.6" class="energy-core"/>
+                    <circle cx="100" cy="115" r="3" fill="#3b82f6" opacity="0.8"/>
+                    
+                    <!-- 医疗AI标识 -->
+                    <rect x="75" y="170" width="50" height="15" rx="3" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
+                    <text x="100" y="180" font-family="monospace" font-size="8" fill="#1e40af" text-anchor="middle">WILD AI</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Hi, my name is <span class="highlight">Shui Liu</span>.</h1>
+            <p class="hero-subtitle">Medical AI Entrepreneur | Founder of Med Frontier | Dedicated to reshaping radiology diagnosis with AI, making healthcare more equitable and intelligent.</p>
+        </section>
+
+        <!-- Introduction Panel -->
+        <section class="intro-panel">
+            <div class="panel-content">
+                <h2 class="panel-title">AI Pathfinding: Navigating Medical Imaging's Future</h2>
+                <p class="panel-description">
+                    Through ten years in medical devices, I witnessed radiologists' struggle against time. From GE Healthcare to Neusoft,
+                    from Tianjin Medical University Cancer Institute to NHS Innovation, I founded Med Frontier
+                    to break medical resource inequality with professional AI, bringing intelligent diagnosis to every patient.
+                </p>
+                <button class="cta-button">Explore Radiologx AI</button>
+            </div>
+        </section>
+
+        <!-- Core Projects Section -->
+        <section id="work" class="projects-section">
+            <h2 class="section-title">Med Frontier Core Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card" data-reveal>
+                    <div class="project-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="20" r="8" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <rect x="20" y="30" width="20" height="15" rx="3" stroke="#1e40af" stroke-width="2" fill="none"/>
+                            <circle cx="25" cy="37" r="2" fill="#1d4ed8"/>
+                            <circle cx="35" cy="37" r="2" fill="#1e3a8a"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Radiologx AI Platform</h3>
+                    <p class="project-description">Professional radiology AI platform with CNN automatic lesion detection (90% sensitivity) and LLM structured report generation, reducing physician workload by 30%.</p>
+                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                </article>
+
+                <article class="project-card" data-reveal>
+                    <div class="project-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="15" width="40" height="25" rx="5" stroke="#1e40af" stroke-width="2" fill="none"/>
+                            <path d="M15 25 Q30 20 45 25" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="30" r="2" fill="#1d4ed8"/>
+                            <circle cx="30" cy="28" r="2" fill="#1e3a8a"/>
+                            <circle cx="40" cy="32" r="2" fill="#3b82f6"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Low-Dose CT Optimization Algorithm</h3>
+                    <p class="project-description">Deep learning-based CT image denoising technology, reducing radiation dose by 30% with 90% sensitivity for small nodule detection. Published in Radiology journal.</p>
+                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Research →</a>
+                </article>
+
+                <article class="project-card" data-reveal>
+                    <div class="project-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="8" stroke="#1d4ed8" stroke-width="2" fill="none"/>
+                            <circle cx="40" cy="20" r="8" stroke="#1e40af" stroke-width="2" fill="none"/>
+                            <circle cx="30" cy="40" r="8" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                            <path d="M25 25 L35 35" stroke="#1e3a8a" stroke-width="2"/>
+                            <path d="M35 25 L25 35" stroke="#1e3a8a" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Federated Learning Medical Network</h3>
+                    <p class="project-description">Breaking data silos, enabling hospitals to share AI models without data migration, promoting healthcare equity with a goal to impact 100,000 patient lives.</p>
+                    <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Join Network →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">About My AI Pathfinding</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>From Medical Devices to AI Innovation</h3>
+                        <p>During my ten-year career in medical devices, I promoted high-end imaging equipment at GE Healthcare and Neusoft, working closely with frontline medical institutions like Tianjin Medical University Cancer Institute. I witnessed firsthand how radiologists struggle in data floods and how resource inequality affects patient outcomes.</p>
+                        
+                        <h3>Technical Breakthroughs & Academic Achievements</h3>
+                        <p>Collaborating with Dr. Xiaonan Cui (Attending Physician, Radiology Dept., Tianjin Medical University Cancer Institute) and Dr. Sunyi Zheng (Assistant Researcher, Westlake University), our specialized LLM published in Radiology journal achieved F1 score of 0.58 and factual consistency of 88.9%, significantly outperforming general GPT-4o.</p>
+                        
+                        <h3>The Birth of Med Frontier</h3>
+                        <p>In 2023, I left the comfort zone of traditional medical device promotion and co-founded Med Frontier with clinical experts from Tianjin Medical University Cancer Institute to NHS Innovation. We unite talents and industry experts with shared values, dedicated to applying cutting-edge AI technology to medical imaging diagnosis.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years Medical Device Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Lesion Detection Sensitivity</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30%</div>
+                            <div class="stat-label">Physician Workload Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Month Target</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Partner Hospitals</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10万+</div>
+                            <div class="stat-label">Reduced Diagnosis Delays</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section id="mission" class="mission-section">
+            <div class="mission-content">
+                <h2 class="section-title">Mission & Vision</h2>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <h3>🎯 Mission</h3>
+                        <p>Breaking medical resource inequality with professional AI, enabling every patient to enjoy intelligent diagnosis and reducing healthcare disparities caused by geographical differences.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>🔬 Technical Vision</h3>
+                        <p>Building a human-AI collaborative medical ecosystem through CNN automatic detection, LLM intelligent reporting, federated learning and other technologies.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>🌍 Social Impact</h3>
+                        <p>Our goal is to partner with 5 hospitals within 12 months, reducing 100,000 diagnostic delays.</p>
+                    </div>
+                </div>
+                <div class="cta-section">
+                    <h3>Join Our Transformation Journey</h3>
+                    <p>If you also want to enable people worldwide to enjoy affordable and equitable healthcare, let's join hands to light up that intelligent dawn.</p>
+                    <a href="mailto:shui.liu@medfrontiersuppliers.com" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <div class="team-content">
+                <h2 class="section-title">Our Team</h2>
+                <p class="team-intro">Med Frontier brings together top experts in medical imaging and AI technology, dedicated to driving innovation in medical AI development.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 简单原始头像 -->
+                                <circle cx="100" cy="100" r="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+                                <circle cx="85" cy="85" r="8" fill="#374151"/>
+                                <circle cx="115" cy="85" r="8" fill="#374151"/>
+                                <path d="M80 120 Q100 135 120 120" stroke="#374151" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3>Shui Liu</h3>
+                            <p class="member-title">Founder & CEO</p>
+                            <p class="member-description">
+                                Founder and CEO of Med Frontier, a driving force in AI medical imaging. Founded Med Frontier and developed the Radiologx AI platform, combining CNN (Convolutional Neural Networks for automatic lesion detection) and LLM (Large Language Models for structured report generation) to promote China-UK medical collaboration.
+                            </p>
+                            <p class="member-description">
+                                Collaborating with Tianjin Medical University Cancer Institute and NHS Innovation to build a federated learning network (privacy-preserving data sharing), aiming to reduce diagnostic delays. My responsibility is to unite the team, set direction, and help physicians work more efficiently while ensuring patients receive equitable healthcare.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 简单原始头像 -->
+                                <circle cx="100" cy="100" r="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+                                <circle cx="85" cy="85" r="8" fill="#374151"/>
+                                <circle cx="115" cy="85" r="8" fill="#374151"/>
+                                <path d="M80 120 Q100 135 120 120" stroke="#374151" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dr. Xiaonan Cui</h3>
+                            <p class="member-title">Co-Founder & Head of Clinical Research</p>
+                            <p class="member-description">
+                                Dr. Xiaonan Cui holds a PhD in Medical Imaging from the University of Groningen and currently serves as an Attending Physician in the Radiology Department at Tianjin Medical University Cancer Institute. He specializes in imaging pathology, particularly the application of AI in lung cancer diagnosis.
+                            </p>
+                            <p class="member-description">
+                                As the principal investigator of multiple national-level projects, Dr. Cui's clinical research experience ensures rigorous clinical validation of our AI diagnostic capabilities, providing valuable clinical perspectives to the team.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 简单原始头像 -->
+                                <circle cx="100" cy="100" r="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+                                <circle cx="85" cy="85" r="8" fill="#374151"/>
+                                <circle cx="115" cy="85" r="8" fill="#374151"/>
+                                <path d="M80 120 Q100 135 120 120" stroke="#374151" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3>Sunyi Zheng</h3>
+                            <p class="member-title">Co-Founder & Chief AI Engineer</p>
+                            <p class="member-description">
+                                Sunyi Zheng has a deep background in AI model development and medical imaging, with particular expertise in early lung cancer detection. He has developed AI algorithms for pulmonary nodule detection and published multiple papers in top medical journals.
+                            </p>
+                            <p class="member-description">
+                                Holding multiple patents in AI-based diagnostic technologies, he provides strong technical support for Med Frontier's technological innovation and product development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Med Frontier. From <span class="highlight">Tianjin</span> to <span class="highlight">Leeds</span>.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
