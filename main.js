@@ -18,6 +18,9 @@ window.addEventListener('load', () => {
             loadingMask.remove();
         }, 500);
     }, 1000); // 延迟1秒显示加载效果
+    
+    // 加载新闻
+    loadDailyNews();
 });
 
 // 菜单切换功能
@@ -371,17 +374,22 @@ window.addEventListener('error', (e) => {
 // 控制台欢迎信息
 // 加载每日医疗AI新闻
 function loadDailyNews() {
+    console.log('开始加载新闻...');
     fetch('./news.json')
         .then(response => {
+            console.log('新闻响应状态:', response.status);
             if (!response.ok) {
-                throw new Error('Failed to fetch news');
+                throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
+            console.log('新闻数据:', data);
             if (data.news && data.news.length > 0) {
+                console.log('显示新闻动画...');
                 displayNewsWithAnimation(data.news);
             } else {
+                console.log('没有新闻数据');
                 displayNoNews();
             }
         })
@@ -458,9 +466,7 @@ function displayErrorMessage() {
 }
 
 // 页面加载完成后加载新闻
-window.addEventListener('load', () => {
-    loadDailyNews();
-});
+// 新闻加载已合并到主load事件监听器中
 
 console.log('%c欢迎来到我的个人网站！', 'color: #ff6b9d; font-size: 20px; font-weight: bold;');
 console.log('%c如果你对代码感兴趣，欢迎查看源码 😊', 'color: #c77dff; font-size: 14px;');
