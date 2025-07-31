@@ -21,6 +21,9 @@ window.addEventListener('load', () => {
     
     // 加载新闻
     loadDailyNews();
+    
+    // 平滑滚动到锚点
+    smoothScrollToAnchor();
 });
 
 // 菜单切换功能
@@ -337,8 +340,7 @@ function smoothScrollToAnchor() {
     }
 }
 
-// 页面加载时检查锚点
-window.addEventListener('load', smoothScrollToAnchor);
+// 页面加载时检查锚点已合并到主load事件监听器中
 
 // 处理浏览器前进后退
 window.addEventListener('popstate', smoothScrollToAnchor);
@@ -401,16 +403,30 @@ function loadDailyNews() {
 
 // 显示新闻动画
 function displayNewsWithAnimation(newsArray) {
+    console.log('开始显示新闻动画，新闻数量:', newsArray.length);
+    
     const bubbles = [
         document.getElementById('news-bubble-1'),
         document.getElementById('news-bubble-2'),
         document.getElementById('news-bubble-3')
     ];
     
+    // 检查气泡元素是否存在
+    bubbles.forEach((bubble, index) => {
+        console.log(`气泡 ${index + 1}:`, bubble);
+        if (!bubble) {
+            console.error(`找不到气泡元素 news-bubble-${index + 1}`);
+            return;
+        }
+    });
+    
     // 先隐藏所有气泡
-    bubbles.forEach(bubble => {
-        bubble.classList.add('hidden');
-        bubble.classList.remove('show');
+    bubbles.forEach((bubble, index) => {
+        if (bubble) {
+            bubble.classList.add('hidden');
+            bubble.classList.remove('show');
+            console.log(`隐藏气泡 ${index + 1}`);
+        }
     });
     
     // 逐个显示新闻气泡
@@ -418,17 +434,30 @@ function displayNewsWithAnimation(newsArray) {
         if (index < 3) {
             setTimeout(() => {
                 const bubble = bubbles[index];
+                if (!bubble) {
+                    console.error(`气泡 ${index + 1} 不存在，跳过显示`);
+                    return;
+                }
+                
                 const textElement = bubble.querySelector('.bubble-text');
                 const timeElement = bubble.querySelector('.bubble-time');
+                
+                if (!textElement || !timeElement) {
+                    console.error(`气泡 ${index + 1} 内部元素不存在:`, { textElement, timeElement });
+                    return;
+                }
                 
                 // 设置内容
                 textElement.innerHTML = `<a href="${news.link}" target="_blank" rel="noopener noreferrer">${news.title}</a>`;
                 timeElement.textContent = `${news.writer} • ${new Date(news.updated).toLocaleDateString()}`;
                 
+                console.log(`设置气泡 ${index + 1} 内容:`, news.title);
+                
                 // 显示气泡
                 bubble.classList.remove('hidden');
                 setTimeout(() => {
                     bubble.classList.add('show');
+                    console.log(`显示气泡 ${index + 1}`);
                 }, 100);
             }, index * 1000); // 每个气泡间隔1秒显示
         }
