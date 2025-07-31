@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Loading Test</title>
+</head>
+<body>
+    <h1>News Loading Test</h1>
+    
+    <div id="news-bubble-1" class="chat-bubble hidden">
+        <div class="bubble-content">
+            <p class="bubble-text">Loading news...</p>
+            <span class="bubble-time"></span>
+        </div>
+    </div>
+    
+    <div id="news-bubble-2" class="chat-bubble hidden">
+        <div class="bubble-content">
+            <p class="bubble-text">Loading news...</p>
+            <span class="bubble-time"></span>
+        </div>
+    </div>
+    
+    <div id="news-bubble-3" class="chat-bubble hidden">
+        <div class="bubble-content">
+            <p class="bubble-text">Loading news...</p>
+            <span class="bubble-time"></span>
+        </div>
+    </div>
+    
+    <button onclick="testLoadNews()">Test Load News</button>
+    
+    <script>
+        function testLoadNews() {
+            console.log('测试开始...');
+            
+            // 检查元素
+            const bubble1 = document.getElementById('news-bubble-1');
+            const bubble2 = document.getElementById('news-bubble-2');
+            const bubble3 = document.getElementById('news-bubble-3');
+            
+            console.log('Bubble 1:', bubble1);
+            console.log('Bubble 2:', bubble2);
+            console.log('Bubble 3:', bubble3);
+            
+            // 测试fetch
+            fetch('./news.json')
+                .then(response => {
+                    console.log('News response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('News data:', data);
+                    if (data.news && data.news.length > 0) {
+                        displayTestNews(data.news);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading news:', error);
+                });
+        }
+        
+        function displayTestNews(newsArray) {
+            console.log('显示测试新闻:', newsArray);
+            
+            const bubbles = [
+                document.getElementById('news-bubble-1'),
+                document.getElementById('news-bubble-2'),
+                document.getElementById('news-bubble-3')
+            ];
+            
+            newsArray.forEach((news, index) => {
+                if (index < 3) {
+                    const bubble = bubbles[index];
+                    if (bubble) {
+                        const textElement = bubble.querySelector('.bubble-text');
+                        const timeElement = bubble.querySelector('.bubble-time');
+                        
+                        if (textElement && timeElement) {
+                            textElement.innerHTML = `<a href="${news.link}" target="_blank">${news.title}</a>`;
+                            timeElement.textContent = `${news.writer} • ${new Date(news.updated).toLocaleDateString()}`;
+                            
+                            bubble.classList.remove('hidden');
+                            bubble.style.display = 'block';
+                            bubble.style.background = '#f0f0f0';
+                            bubble.style.padding = '10px';
+                            bubble.style.margin = '10px 0';
+                            bubble.style.border = '1px solid #ccc';
+                            
+                            console.log(`设置气泡 ${index + 1} 成功`);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 页面加载时自动测试
+        window.addEventListener('load', () => {
+            console.log('测试页面加载完成');
+            setTimeout(testLoadNews, 1000);
+        });
+    </script>
+</body>
+</html>

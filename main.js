@@ -1,7 +1,9 @@
 // 主JavaScript文件 - 实现网站交互功能
+console.log('main.js 开始执行...');
 
 // DOM元素引用
 const loadingMask = document.getElementById('loading-mask');
+console.log('loadingMask 元素:', loadingMask);
 const menuToggle = document.querySelector('.menu-toggle');
 const mainMenu = document.getElementById('main-menu');
 const menuLinks = document.querySelectorAll('.menu-link');
@@ -11,6 +13,8 @@ const ctaButton = document.querySelector('.cta-button');
 
 // 页面加载完成后隐藏加载动画
 window.addEventListener('load', () => {
+    console.log('页面加载完成，开始初始化...');
+    
     setTimeout(() => {
         loadingMask.classList.add('hidden');
         // 移除加载遮罩以释放内存
@@ -19,11 +23,19 @@ window.addEventListener('load', () => {
         }, 500);
     }, 1000); // 延迟1秒显示加载效果
     
-    // 加载新闻
-    loadDailyNews();
+    // 确保DOM完全加载后再加载新闻
+    setTimeout(() => {
+        console.log('准备加载新闻...');
+        loadDailyNews();
+    }, 1500); // 延迟1.5秒确保DOM完全加载
     
     // 平滑滚动到锚点
     smoothScrollToAnchor();
+});
+
+// 备用：DOMContentLoaded事件
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded 事件触发');
 });
 
 // 菜单切换功能
