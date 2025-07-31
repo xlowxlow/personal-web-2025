@@ -9,8 +9,14 @@ def fetch_medical_ai_news():
     # 使用Google Custom Search API获取医疗AI新闻
     try:
         # 从环境变量获取Google Custom Search API密钥和搜索引擎ID
-        api_key = os.environ.get("GOOGLE_API_KEY", "AIzaSyDQsb1WV-ocv0_AH9pwuJXTWtp8aBQYqS8")  # 使用环境变量或默认值
-        search_engine_id = os.environ.get("GOOGLE_CSE_ID", "017576662512468239146:omuauf_lfve")  # 默认搜索引擎ID
+        api_key = os.environ.get("GOOGLE_API_KEY")
+        search_engine_id = os.environ.get("GOOGLE_CSE_ID")
+        
+        # 检查必需的环境变量
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY environment variable is required")
+        if not search_engine_id:
+            raise ValueError("GOOGLE_CSE_ID environment variable is required")
         
         # 创建Google Custom Search API服务
         service = build("customsearch", "v1", developerKey=api_key)
