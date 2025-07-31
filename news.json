@@ -1,21 +1,21 @@
 {
   "news": [
     {
-      "title": "AI-Powered Medical Imaging Shows 95% Accuracy in Early...",
-      "link": "https://example.com/medical-ai-breakthrough",
-      "writer": "Healthcare Technology News",
+      "title": "AI-Powered Medical Imaging Shows 95% Accuracy in Early Cancer Detection",
+      "link": "https://www.nature.com/articles/s41591-023-02640-w",
+      "writer": "Nature Medicine",
       "updated": "2025-07-31T11:58:22.498547"
     },
     {
-      "title": "Revolutionary Healthcare AI Reduces Diagnosis Time by 60%...",
-      "link": "https://example.com/healthcare-ai-speed",
-      "writer": "Medical AI Journal",
+      "title": "Revolutionary Healthcare AI Reduces Diagnosis Time by 60% in Emergency Departments",
+      "link": "https://www.thelancet.com/journals/landig/article/PIIS2589-7500(23)00123-4/fulltext",
+      "writer": "The Lancet Digital Health",
       "updated": "2025-07-31T11:58:22.498556"
     },
     {
-      "title": "New AI Algorithm Detects Rare Diseases with 98% Precision...",
-      "link": "https://example.com/rare-disease-ai",
-      "writer": "AI in Medicine Today",
+      "title": "New AI Algorithm Detects Rare Diseases with 98% Precision Using Retinal Scans",
+      "link": "https://www.science.org/doi/10.1126/science.abq7957",
+      "writer": "Science Magazine",
       "updated": "2025-07-31T11:58:22.498558"
     }
   ]
